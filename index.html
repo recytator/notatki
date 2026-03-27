@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Centrum notatek naukowych — Deep Learning, Statystyka, Machine Learning i więcej.">
+    <title>Notatnik Studenta · AllInOne</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Animated background -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="bg-overlay"></div>
+
+    <!-- Main content -->
+    <main class="container">
+        <div class="hero">
+            <span class="hero-badge">📚 Twoje interaktywne Centrum Wiedzy</span>
+            <h1 class="hero-title">Notatnik<br><span class="gradient-text">Studenta</span></h1>
+            <p class="hero-subtitle">Interaktywne notatki z najważniejszych dziedzin Data Science i AI</p>
+        </div>
+
+        <div class="cards-grid" id="cards-grid">
+            <!-- Card 1: Deep Learning -->
+            <a href="https://recytator.github.io/Nauka-na-Deep-Learning/" class="card" target="_blank"
+                rel="noopener noreferrer">
+                <div class="card-icon">🧠</div>
+                <div class="card-content">
+                    <h2 class="card-title">Deep Learning i Sieci Neuronowe</h2>
+                    <p class="card-desc">Zajęcia z SSmanem - Przybył.</p>
+                </div>
+                <div class="card-arrow">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 17L17 7" />
+                        <path d="M7 7h10v10" />
+                    </svg>
+                </div>
+                <div class="card-glow card-glow--purple"></div>
+            </a>
+
+            <!-- Card 2: Statystyka -->
+            <a href="https://recytator.github.io/Statystyka/" class="card" target="_blank" rel="noopener noreferrer">
+                <div class="card-icon">📊</div>
+                <div class="card-content">
+                    <h2 class="card-title">Statystyka</h2>
+                    <p class="card-desc">Okropne zajęcia, okropne do nauki - mam nadzieję, że chociaż to nas trochę
+                        uratuje</p>
+                </div>
+                <div class="card-arrow">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 17L17 7" />
+                        <path d="M7 7h10v10" />
+                    </svg>
+                </div>
+                <div class="card-glow card-glow--cyan"></div>
+            </a>
+
+            <!-- Card 3: Machine Learning -->
+            <a href="https://recytator.github.io/ML-notatki/" class="card" target="_blank" rel="noopener noreferrer">
+                <div class="card-icon">⚙️</div>
+                <div class="card-content">
+                    <h2 class="card-title">Machine Learning</h2>
+                    <p class="card-desc">Niby liczenie w Excelu, ale realnie mamy na prezkach co innego. bruh.</p>
+                </div>
+                <div class="card-arrow">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 17L17 7" />
+                        <path d="M7 7h10v10" />
+                    </svg>
+                </div>
+                <div class="card-glow card-glow--green"></div>
+            </a>
+
+            <!--
+                =============================================
+                DODAWANIE NOWYCH KART:
+                Skopiuj poniższy szablon i wklej go TUTAJ
+                (przed zamknięciem div#cards-grid).
+                Zmień emoji, tytuł, opis, link i klasę koloru.
+                Dostępne kolory: card-glow--purple, --cyan,
+                --green, --orange, --pink, --yellow
+                =============================================
+
+            <a href="LINK_TUTAJ" class="card" target="_blank" rel="noopener noreferrer">
+                <div class="card-icon">🔬</div>
+                <div class="card-content">
+                    <h2 class="card-title">Tytuł przedmiotu</h2>
+                    <p class="card-desc">Krótki opis zawartości notatek.</p>
+                </div>
+                <div class="card-arrow">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+                    </svg>
+                </div>
+                <div class="card-glow card-glow--orange"></div>
+            </a>
+
+            -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Wykonanie: Miłosz Prusinowski</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

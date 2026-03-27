@@ -1,0 +1,388 @@
+/* =============================================
+   DESIGN TOKENS
+   ============================================= */
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-card: rgba(255, 255, 255, 0.04);
+    --bg-card-hover: rgba(255, 255, 255, 0.08);
+    --border-card: rgba(255, 255, 255, 0.08);
+    --border-card-hover: rgba(255, 255, 255, 0.18);
+    --text-primary: #f0f0f5;
+    --text-secondary: rgba(240, 240, 245, 0.55);
+    --text-desc: rgba(240, 240, 245, 0.4);
+    --purple: #a855f7;
+    --cyan: #22d3ee;
+    --green: #34d399;
+    --orange: #fb923c;
+    --pink: #f472b6;
+    --yellow: #facc15;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Space Grotesk', 'Inter', sans-serif;
+    --radius: 16px;
+    --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* =============================================
+   ANIMATED BACKGROUND
+   ============================================= */
+#bg-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.bg-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        radial-gradient(circle 800px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(168, 85, 247, 0.08), transparent 80%),
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(168, 85, 247, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 100%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(52, 211, 153, 0.06) 0%, transparent 50%);
+}
+
+/* =============================================
+   LAYOUT
+   ============================================= */
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - 80px);
+}
+
+/* =============================================
+   HERO
+   ============================================= */
+.hero {
+    text-align: center;
+    margin-bottom: 56px;
+    animation: fadeUp 0.8s ease-out both;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 100px;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--purple);
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--purple), var(--cyan), var(--green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* =============================================
+   CARDS GRID
+   ============================================= */
+.cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* =============================================
+   CARD
+   ============================================= */
+.card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: all var(--transition);
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    animation: fadeUp 0.8s ease-out both;
+}
+
+.card:nth-child(1) {
+    animation-delay: 0.15s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.35s;
+}
+
+.card:nth-child(4) {
+    animation-delay: 0.45s;
+}
+
+.card:nth-child(5) {
+    animation-delay: 0.55s;
+}
+
+.card:nth-child(6) {
+    animation-delay: 0.65s;
+}
+
+.card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-card-hover);
+    transform: translateY(-3px);
+}
+
+.card:active {
+    transform: translateY(-1px);
+}
+
+/* ---- Icon ---- */
+.card-icon {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: transform var(--transition);
+}
+
+.card:hover .card-icon {
+    transform: scale(1.08);
+}
+
+/* ---- Content ---- */
+.card-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.card-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+    transition: color var(--transition);
+}
+
+.card-desc {
+    font-size: 0.85rem;
+    color: var(--text-desc);
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+/* ---- Arrow ---- */
+.card-arrow {
+    flex-shrink: 0;
+    color: var(--text-desc);
+    transition: all var(--transition);
+}
+
+.card:hover .card-arrow {
+    color: var(--text-primary);
+    transform: translate(3px, -3px);
+}
+
+/* ---- Glow Effect ---- */
+.card-glow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    opacity: 0;
+    transition: opacity var(--transition);
+    pointer-events: none;
+    filter: blur(40px);
+}
+
+.card:hover .card-glow {
+    opacity: 1;
+}
+
+.card-glow--purple {
+    background: radial-gradient(circle at 100% 50%, rgba(168, 85, 247, 0.15), transparent 70%);
+}
+
+.card-glow--cyan {
+    background: radial-gradient(circle at 100% 50%, rgba(34, 211, 238, 0.15), transparent 70%);
+}
+
+.card-glow--green {
+    background: radial-gradient(circle at 100% 50%, rgba(52, 211, 153, 0.15), transparent 70%);
+}
+
+.card-glow--orange {
+    background: radial-gradient(circle at 100% 50%, rgba(251, 146, 60, 0.15), transparent 70%);
+}
+
+.card-glow--pink {
+    background: radial-gradient(circle at 100% 50%, rgba(244, 114, 182, 0.15), transparent 70%);
+}
+
+.card-glow--yellow {
+    background: radial-gradient(circle at 100% 50%, rgba(250, 204, 21, 0.15), transparent 70%);
+}
+
+/* ---- Hover color on title ---- */
+.card:has(.card-glow--purple):hover .card-title {
+    color: var(--purple);
+}
+
+.card:has(.card-glow--cyan):hover .card-title {
+    color: var(--cyan);
+}
+
+.card:has(.card-glow--green):hover .card-title {
+    color: var(--green);
+}
+
+.card:has(.card-glow--orange):hover .card-title {
+    color: var(--orange);
+}
+
+.card:has(.card-glow--pink):hover .card-title {
+    color: var(--pink);
+}
+
+.card:has(.card-glow--yellow):hover .card-title {
+    color: var(--yellow);
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 28px 24px;
+    color: var(--text-desc);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 600px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .hero {
+        margin-bottom: 36px;
+    }
+
+    .hero-title {
+        font-size: 2.4rem;
+    }
+
+    .card {
+        padding: 18px 20px;
+        gap: 14px;
+    }
+
+    .card-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 1.7rem;
+        border-radius: 12px;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-desc {
+        font-size: 0.8rem;
+    }
+}
